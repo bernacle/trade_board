@@ -1,0 +1,6 @@
+= simple_form_for @offer do |f|
+  = f.input :title, label: "What are you selling?", input_html: {class: "form-control"}
+  = f.input :description, label: "Give the details of your product", input_html: {class: "form-control"}
+  = f.input :price, label: "How much will it cost?", input_html: {class: "form-control"}
+  = f.input :photo, as: :file
+  = f.button :submit, class: "btn btn-primary"

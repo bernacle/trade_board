@@ -1,0 +1,5 @@
+- @offers.each do |offer|
+  %h2= link_to offer.title, offer
+  %p=  truncate(offer.description, length: 50)
+
+= link_to "New Offer", new_offer_path
