@@ -1,8 +1,10 @@
 %h1= @offer.title
 %p=  @offer.description
-%p= @offer.price
-%p= image_tag @offer.photo 
-
+%h3= number_to_currency(@offer.price, locale: :en)
+%p= image_tag @offer.photo(:medium)
+%p
+  Posted by
+  = @offer.user.email
 = link_to "Back", root_path
 = link_to "Edit", edit_offer_path(@offer)
 = link_to "Destroy", offer_path(@offer), method: :delete, data: {confirm: "Are you Sure?"}

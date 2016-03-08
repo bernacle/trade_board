@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   before_action :find_offer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @offers = Offer.all.order("created_at DESC")
@@ -20,11 +21,11 @@ class OffersController < ApplicationController
   end
 
   def new
-    @offer = Offer.new
+    @offer = current_user.offers.build
   end
 
   def create
-    @offer = Offer.new(offer_params)
+    @offer = current_user.offers.build(offer_params)
     if @offer.save
       redirect_to @offer
     else
@@ -43,7 +44,7 @@ class OffersController < ApplicationController
     end
 
     def offer_params
-      params.require(:offer).permit(:title, :description, :price, :photo)
+      params.require(:offer).permit(:title, :description, :price, :photo, :user_id)
     end
 
 end
