@@ -1,0 +1,8 @@
+%h1 Edit Question
+
+= simple_form_for([@offer, @question]) do |f|
+  = f.input :subject
+  = f.input :content
+  = f.submit
+
+= link_to 'Back', @offer

@@ -1,0 +1,4 @@
+%h4.strong= question.subject
+%p= question.content
+= link_to "Edit", edit_offer_question_path(question.offer, question)
+= link_to "Delete", offer_question_path(question.offer, question), method: :delete

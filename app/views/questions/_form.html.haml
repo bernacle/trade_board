@@ -1,0 +1,4 @@
+= simple_form_for([@offer, @offer.questions.build]) do |f|
+  = f.input :subject
+  = f.input :content
+  = f.submit "Create",  class: "btn btn-primary"
