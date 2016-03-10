@@ -1,17 +1,18 @@
-%h1= @offer.title
-%p=  @offer.description
-%h3= number_to_currency(@offer.price, locale: :en)
-%p= image_tag @offer.photo(:medium)
-%p
-  Posted by
-  = @offer.user.email
+.col-md-6.col-md-offset-3
+  %h1= @offer.title
+  %p=  simple_format(@offer.description)
+  %h3= number_to_currency(@offer.price, locale: :en)
+  %p= image_tag @offer.photo(:medium) unless @offer.photo.blank?
+  %p
+    Posted by
+    = @offer.user.email
 
-%h2 Questions
-= render @offer.questions
+  %h2 Questions
+  = render @offer.questions
 
-%h3 Make a Question
-= render 'questions/form'
+  %h3 Make a Question
+  = render 'questions/form'
 
-= link_to "Back", root_path
-= link_to "Edit", edit_offer_path(@offer)
-= link_to "Destroy", offer_path(@offer), method: :delete, data: {confirm: "Are you Sure?"}
+  = link_to "Back", root_path
+  = link_to "Edit", edit_offer_path(@offer)
+  = link_to "Destroy", offer_path(@offer), method: :delete, data: {confirm: "Are you Sure?"}

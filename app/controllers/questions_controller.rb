@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 
   before_action :find_offer
   before_action :find_question, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def create
     @question = @offer.questions.build(question_params)

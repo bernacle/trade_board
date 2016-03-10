@@ -6,7 +6,20 @@
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 %body
-  %p.notice= notice
-  %p.alert= alert
+  .navbar.navbar-default
+    .container
+      .navbar-header
+        = link_to "TradeBoard", root_path, class: "navbar-brand"
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li= link_to "New Offer", new_offer_path, class: "navbar-link"
+          %li= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-link"
+        - else
+          %li= link_to "Log In", new_user_session_path, class: "navbar-link"
+          %li= link_to "Sign In", new_user_registration_path, class: "navbar-link"
 
+  .container
+  - flash.each do |name, msg|
+    = content_tag :div, msg, class: "alert alert-info"
+    
   = yield

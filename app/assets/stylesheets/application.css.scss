@@ -15,3 +15,36 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@mixin back-white {
+  background: white;
+  padding: 2em 5%;
+  border-radius: .5em;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar.navbar-default {
+    background: #655073;
+    border-radius: 0;
+    -webkit-box-shadow: 2px 1px 1px 2px rgba(255,255,255,0.5);
+    box-shadow: 2px 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-top: 0;
+    text-decoration: none;
+    .navbar-brand {
+      color: white;
+    }
+
+    .navbar-link{
+      color: white;
+    }
+}
+
+#offers {
+  a {
+    text-decoration: none;
+    color: #655073;
+  }
+}
