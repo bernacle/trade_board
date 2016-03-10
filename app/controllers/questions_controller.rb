@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update(question_params)
+    if @question.update(question_params) && current_user == @question.user
       redirect_to @offer
     else
       render 'edit'
@@ -28,8 +28,13 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question.destroy
-    redirect_to @offer
+    if current_user == @question.user
+      @question.destroy
+      redirect_to @offer
+    else
+      flash[:info] = "You can't delete this question"
+      redirect_to @offer
+    end
   end
 
   private
