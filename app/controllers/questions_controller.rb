@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
     @question = @offer.questions.build(question_params)
     @question.user_id = current_user.id
     if @question.save
+      QuestionNotifier.received(@offer, @question).deliver
       redirect_to @offer
     else
       flash[:error] = "Error ocurred on making a questions"
