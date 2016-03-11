@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :offers do
+    collection do
+      get 'search'
+    end
     resources :questions
   end
 

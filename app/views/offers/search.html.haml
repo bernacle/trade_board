@@ -1,0 +1,4 @@
+.row
+  - @offers.each do |offer|
+    .col-md-6.col-md-offset-3
+      %h2= link_to offer.title, offer
