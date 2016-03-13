@@ -1,0 +1,5 @@
+#answer
+  .wrapper
+    %p= answer.content
+    - if current_user.id == answer.user_id
+      = link_to "Delete", offer_question_answer_path(answer.question.offer, answer.question, answer), method: :delete

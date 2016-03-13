@@ -3,3 +3,8 @@
 - if current_user == question.user
   = link_to "Edit", edit_offer_question_path(question.offer, question)
   = link_to "Delete", offer_question_path(question.offer, question), method: :delete
+
+- if current_user == question.offer.user
+  = link_to "Answer", new_offer_question_answer_path(question.offer, question)
+
+= render question.answers

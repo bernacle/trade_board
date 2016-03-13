@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :questions
+    resources :questions do
+      resources :answers
+    end
   end
 
   root 'offers#index'
