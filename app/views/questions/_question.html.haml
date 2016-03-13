@@ -6,5 +6,6 @@
 
 - if current_user == question.offer.user
   = link_to "Answer", new_offer_question_answer_path(question.offer, question)
+  %hr
 
 = render question.answers

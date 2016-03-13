@@ -10,9 +10,9 @@
   - if user_signed_in?
     %h2 Questions
     = render @offer.questions
-
-    %h3 Make a Question
-    = render 'questions/form'
+    - unless current_user == @offer.user
+      %h3 Make a Question
+      = render 'questions/form'
 
     = link_to "Back", root_path
     - if @offer.user == current_user
